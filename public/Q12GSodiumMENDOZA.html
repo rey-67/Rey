@@ -1,10 +1,28 @@
 <h1> Q1 2nd Graded Exercise by Rey of 9-Sodium </h1>
 
-<input id="in1" type="number" placeholder="Meal Price"> <br>
-<input id="in1" type="number" placeholder="Service Charge (%)"> <br>
-<input id="in1" type="number" placeholder="Tip"> <br>
-<button onclick="CALCULATE()"> Calculate Total: </button>
+<input type="number" id="input1" placeholder="Meal Price">
+    <input type="number" id="input2" placeholder="Tip">
+    <input type="number" id="input3" placeholder="Service Charge%">
+    <button id="calculate" onclick="totalMeal()">Calculate Total</button>
 
+    <div id="output"></div>
 
+    <script>
+        const in1 = document.getElementById("input1");
+        const in2 = document.getElementById("input2");
+        const in3 = document.getElementById("input3");
+        const out = document.getElementById("output");
 
+        function totalMeal() {
+            var mealPrice = parseFloat(in1.value);
+            var tip = parseFloat(in2.value);
+            var serviceCharge = parseFloat(in3.value);
 
+            var totalCost = mealPrice + tip + (serviceCharge / 100 * mealPrice);
+            totalCost = totalCost.toFixed(2);
+
+            out.innerHTML = "<p>Total Meal Cost: " + totalCost + "</p>";
+        }
+    </script>
+</body>
+</html>

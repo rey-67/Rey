@@ -1,1 +1,30 @@
-h1
+<h1> Q1 3rd Graded Exercise by Rey of 9-Sodium </h1>
+
+<h2>Guess the number</h2>
+    <h2>The number is from 1 to 100</h2>
+    <h2>Enter your guess:</h2>
+    <input type="number" id="guess" placeholder="Enter your guess"><br>
+    <button onclick="checkIt()">Check it!</button>
+
+    <p id="output"></p>
+
+    <script>
+        const guess = document.getElementById("guess");
+        const out = document.getElementById("output");
+
+        function checkIt() {
+            var dnumber = Math.floor(Math.random() * 100) + 1;
+            dnumber = Math.round(dnumber);
+            var guessInt = parseInt(guess.value);
+
+            if (guessInt == dnumber) {
+                out.textContent = "You are correct!";
+            } else if (guessInt < dnumber) {
+                out.textContent = "LOWER";
+            } else {
+                out.textContent = "HIGHER";
+            }
+        }
+    </script>
+</body>
+</html>
