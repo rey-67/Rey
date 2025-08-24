@@ -13,16 +13,16 @@
         const out = document.getElementById("output");
 
         function checkIt() {
-            var dnumber = Math.floor(Math.random() * 100) + 1;
-            dnumber = Math.round(dnumber);
+            var number = Math.floor(Math.random() + 67 );
+            number = Math.round(number);
             var guessInt = parseInt(guess.value);
 
-            if (guessInt == dnumber) {
-                out.textContent = "You are correct!";
-            } else if (guessInt < dnumber) {
-                out.textContent = "LOWER";
-            } else {
+            if (guessInt == number) {
+                out.textContent = "CORRECT! NICE!";
+            } else if (guessInt < number) {
                 out.textContent = "HIGHER";
+            } else {
+                out.textContent = "LOWER";
             }
         }
     </script>
