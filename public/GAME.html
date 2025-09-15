@@ -8,7 +8,7 @@
   let secretWord = ["c", "o", "d", "e"];
   let guessedWord = ["_", "_", "_", "_"];
 
-  document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+  document.getElementById("wordDisplay").textContent = secretWord.join(" ");
 
   function makeGuess() {
     let guess = document.getElementById("guessInput").value.toLowerCase();
