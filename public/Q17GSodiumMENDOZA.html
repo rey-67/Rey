@@ -1,0 +1,72 @@
+<h1>Q1 7th Graded Exercise by Rey of 9-Sodium</h1>
+    <h2>Armstrong Number Checker</h2>
+    <h3>Enter a positive integer:</h3>
+    
+    <input type="text" id="numInput" placeholder="Enter number here"><br>
+    <button onclick="checkArmstrong()">Check it!</button>
+
+    <p id="output1"></p>
+    <p id="output2"></p>
+
+    <script>
+        function getLength(tempNum) {
+            let len = 0;
+            let number = tempNum;
+
+            if (number === 0) return 1;
+
+            for (; number >= 1; len++) {
+                number = Math.floor(number / 10);
+            }
+            return len;
+        }
+
+        function getSum(tempNum, len) {
+            let sum = 0;
+            let n;
+            let number = tempNum;
+
+            while (number > 0) {
+                n = number % 10;
+                number = Math.floor(number / 10);
+                sum = sum + Math.pow(n, len);
+            }
+            return sum;
+        }
+
+        function checkArmstrong() {
+            const inputElement = document.getElementById("numInput");
+            const output1 = document.getElementById("output1");
+            const output2 = document.getElementById("output2");
+            
+            output1.textContent = '';
+            output2.textContent = '';
+            
+            const numInput = inputElement.value.trim();
+            const num = Number(numInput);
+            
+            let originalNum = num;
+            
+            let isInvalid = isNaN(num) || num <= 0;
+
+            if (isInvalid) {
+                if (numInput.length === 1 && numInput[0] === '0') {
+                    output1.textContent = '0 has no value';
+                } else if (isNaN(num)) {
+                    output1.textContent = 'NaN has no value';
+                } else {
+                    output1.textContent = `${num} has no value`;
+                }
+            } else {
+                let integerNum = Math.floor(originalNum);
+
+                let len = getLength(integerNum);
+                let sum = getSum(integerNum, len);
+
+                output1.textContent = `The sum is: ${sum} of ${integerNum} using length of: ${len}`;
+                output2.textContent = (sum === integerNum) ? 'It is an Armstrong number' : 'It is NOT an Armstrong number';
+            }
+        }
+    </script>
+</body>
+</html>

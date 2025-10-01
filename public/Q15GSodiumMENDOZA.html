@@ -1,0 +1,40 @@
+<h1>Q1 5th Graded Exercise by Rey of 9-Sodium</h1>
+    <h2>Determine if a number is "Weird" based on the following rules:</h2>
+    <h2>Odd is Weird. Even 2-5 is Not Weird. Even 6-20 is Weird. Even > 20 is Not Weird.</h2>
+    <input type="number" id="numberInput" placeholder="Enter a number"><br>
+    <button onclick="checkWeirdness()">Check Weirdness</button>
+
+    <p id="resultOutput"></p>
+
+    <script>
+        function checkWeirdness() {
+            const inputField = document.getElementById('numberInput');
+            const resultOutput = document.getElementById('resultOutput');
+            
+            let num = parseInt(inputField.value);
+
+            if (isNaN(num)) {
+                resultOutput.textContent = "Please enter a valid numerical value.";
+                return;
+            }
+
+            let result = "";
+
+            if (num % 2 !== 0) {
+                result = "Weird";
+            }
+            else if (num >= 2 && num <= 5) {
+                result = "Not Weird";
+            }
+            else if (num >= 6 && num <= 20) {
+                result = "Weird";
+            }
+            else {
+                result = "Not Weird";
+            }
+
+            resultOutput.textContent = "Output: " + result;
+        }
+    </script>
+</body>
+</html>

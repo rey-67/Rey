@@ -1,0 +1,47 @@
+ <h1>Q1 4th Graded Exercise by Rey of 9-Sodium</h1>
+    <h2>Enter a greeting to find its language</h2>
+    <h2>Available Greetings: HELLO, MABUHAY, HOLA, HALLO, BONJOUR, CIAO, ZDRAVSTVUJTE.</h2>
+    <input type="text" id="greetingInput" placeholder="Enter greeting here"><br>
+    <button onclick="detectLanguage()">Detect Language</button>
+
+    <p id="resultOutput"></p>
+
+    <script>
+        function detectLanguage() {
+            const inputField = document.getElementById('greetingInput');
+            const resultOutput = document.getElementById('resultOutput');
+            
+            let greeting = inputField.value.trim().toUpperCase();
+
+            let the_language_name = "";
+
+            if (greeting === "HELLO") {
+                the_language_name = "ENGLISH";
+            }
+            else if (greeting === "MABUHAY") {
+                the_language_name = "TAGALOG";
+            }
+            else if (greeting === "HOLA") {
+                the_language_name = "SPANISH";
+            }
+            else if (greeting === "HALLO") {
+                the_language_name = "GERMAN";
+            }
+            else if (greeting === "BONJOUR") {
+                the_language_name = "FRENCH";
+            }
+            else if (greeting === "CIAO") {
+                the_language_name = "ITALIAN";
+            }
+            else if (greeting === "ZDRAVSTVUJTE") {
+                the_language_name = "RUSSIAN";
+            }
+            else {
+                the_language_name = "UNKNOWN";
+            }
+
+            resultOutput.textContent = "Language Is: " + the_language_name;
+        }
+    </script>
+</body>
+</html>

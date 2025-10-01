@@ -1,0 +1,37 @@
+<h1>Q1 6th Graded Exercise by Rey of 9-Sodium</h1>
+    <h2>Generate a number series where the difference between numbers increases by 1 (e.g., 1, 2, 4, 7, 11...)</h2>
+    <input type="number" id="numberInput" placeholder="Enter a number (1-100)"><br>
+    <button onclick="generateSeries()">Generate Series</button>
+
+    <p id="resultOutput"></p>
+
+    <script>
+        function generateSeries() {
+            const inputField = document.getElementById('numberInput');
+            const resultOutput = document.getElementById('resultOutput');
+            
+            let n = parseInt(inputField.value);
+
+            if (isNaN(n) || n < 1 || n > 100) {
+                resultOutput.textContent = "Please enter a valid number between 1 and 100.";
+                return;
+            }
+
+            let series = [];
+            let currentNum = 1;
+            let difference = 1;
+
+            while (currentNum <= n) {
+                series.push(currentNum);
+                
+                // The difference for the next number increases by 1 each time.
+                currentNum = currentNum + difference; 
+                difference = difference + 1;
+            }
+
+            // The output is space-separated numbers
+            resultOutput.textContent = series.join(' ');
+        }
+    </script>
+</body>
+</html>
